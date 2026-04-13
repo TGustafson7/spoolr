@@ -1,1 +1,17 @@
-
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["34DDSUN28N.com.spoolr.Spoolr"],
+        "components": [
+          {
+            "/": "/show",
+            "?": { "d": "*" },
+            "comment": "Matches getspoolr.com/show?d=..."
+          }
+        ]
+      }
+    ]
+  }
+}
