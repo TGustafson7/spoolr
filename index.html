@@ -410,17 +410,14 @@
 <div class="wrap">
 
   <header>
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="13" stroke="#f0e9d8" stroke-width="1.6"/>
-      <circle cx="16" cy="16" r="4.5" stroke="#f0e9d8" stroke-width="1.6"/>
-      <circle cx="16" cy="7"   r="2.2" fill="#f0e9d8"/>
-      <circle cx="16" cy="25"  r="2.2" fill="#f0e9d8"/>
-      <circle cx="7"  cy="16"  r="2.2" fill="#f0e9d8"/>
-      <circle cx="25" cy="16"  r="2.2" fill="#f0e9d8"/>
-      <circle cx="9.5"  cy="9.5"  r="2.2" fill="#f0e9d8"/>
-      <circle cx="22.5" cy="9.5"  r="2.2" fill="#f0e9d8"/>
-      <circle cx="9.5"  cy="22.5" r="2.2" fill="#f0e9d8"/>
-      <circle cx="22.5" cy="22.5" r="2.2" fill="#f0e9d8"/>
+    <svg width="32" height="32" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="150" cy="150" r="118" stroke="#f0e9d8" stroke-width="13"/>
+      <circle cx="150" cy="150" r="88"  stroke="#f0e9d8" stroke-width="2" opacity="0.28"/>
+      <circle cx="150" cy="150" r="62"  stroke="#f0e9d8" stroke-width="2" opacity="0.2"/>
+      <circle cx="150" cy="150" r="38"  stroke="#f0e9d8" stroke-width="2" opacity="0.14"/>
+      <circle cx="150" cy="150" r="20"  stroke="#f0e9d8" stroke-width="9"/>
+      <circle cx="150" cy="150" r="7"   fill="#f0e9d8"/>
+      <line x1="150" y1="150" x2="215" y2="55" stroke="#f0e9d8" stroke-width="12" stroke-linecap="round"/>
     </svg>
     <span class="brand-name">Spoolr</span>
     <span class="brand-tagline">Every show, remembered</span>
@@ -447,19 +444,16 @@ function esc(s) {
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function reelSVG(size, color) {
-  const c = color || '#f0e9d8';
-  return `<svg width="${size}" height="${size}" viewBox="0 0 32 32" fill="none">
-    <circle cx="16" cy="16" r="13" stroke="${c}" stroke-width="1.6"/>
-    <circle cx="16" cy="16" r="4.5" stroke="${c}" stroke-width="1.6"/>
-    <circle cx="16" cy="7"   r="2.2" fill="${c}"/>
-    <circle cx="16" cy="25"  r="2.2" fill="${c}"/>
-    <circle cx="7"  cy="16"  r="2.2" fill="${c}"/>
-    <circle cx="25" cy="16"  r="2.2" fill="${c}"/>
-    <circle cx="9.5"  cy="9.5"  r="2.2" fill="${c}"/>
-    <circle cx="22.5" cy="9.5"  r="2.2" fill="${c}"/>
-    <circle cx="9.5"  cy="22.5" r="2.2" fill="${c}"/>
-    <circle cx="22.5" cy="22.5" r="2.2" fill="${c}"/>
+function reelSVG(size, opacity) {
+  const op = opacity || 1;
+  return `<svg width="${size}" height="${size}" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:${op}">
+    <circle cx="150" cy="150" r="118" stroke="#f0e9d8" stroke-width="13"/>
+    <circle cx="150" cy="150" r="88"  stroke="#f0e9d8" stroke-width="2" opacity="0.28"/>
+    <circle cx="150" cy="150" r="62"  stroke="#f0e9d8" stroke-width="2" opacity="0.2"/>
+    <circle cx="150" cy="150" r="38"  stroke="#f0e9d8" stroke-width="2" opacity="0.14"/>
+    <circle cx="150" cy="150" r="20"  stroke="#f0e9d8" stroke-width="9"/>
+    <circle cx="150" cy="150" r="7"   fill="#f0e9d8"/>
+    <line x1="150" y1="150" x2="215" y2="55" stroke="#f0e9d8" stroke-width="12" stroke-linecap="round"/>
   </svg>`;
 }
 
@@ -522,7 +516,7 @@ function renderCTA() {
 
 function renderFooter() {
   return `<footer>
-    <div class="footer-brand">${reelSVG(16,'#6a6762')} Shared via Spoolr</div>
+    <div class="footer-brand">${reelSVG(16, 0.4)} Shared via Spoolr</div>
     <div class="footer-right">Every show, remembered</div>
   </footer>`;
 }
@@ -564,8 +558,7 @@ function renderShow(show) {
 
 function renderEmpty() {
   return `<div class="empty-state">
-    <div class="empty-reel">${reelSVG(72)}</div>
-    <h2 class="empty-heading">Every show, remembered.</h2>
+    <div class="empty-reel">${reelSVG(72, 0.25)}</div>
     <p class="empty-sub">Your concert history, all in one place.</p>
   </div>
   ${renderCTA()}
